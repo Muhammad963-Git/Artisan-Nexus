@@ -6,8 +6,12 @@ import io
 
 # ---- CONFIGURATION ----
 # Reads your API key from Streamlit secrets (safe, never in code)
-genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-model = genai.GenerativeModel("gemini-1.5-flash")
+try:
+    genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+    model = genai.GenerativeModel("gemini-1.5-flash")
+except Exception as e:
+    st.error(f"API Configuration Error: {e}")
+    st.stop()
 
 # ---- PAGE SETUP ----
 st.set_page_config(page_title="Artisan Nexus", page_icon="🧵")

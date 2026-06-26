@@ -6,7 +6,7 @@ import io
 
 # ---- CONFIGURATION ----
 GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
-GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
+GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key={GEMINI_API_KEY}"
 
 def call_gemini(prompt_text, image=None):
     parts = []

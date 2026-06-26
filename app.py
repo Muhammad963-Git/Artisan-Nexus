@@ -1,17 +1,41 @@
 import streamlit as st
-import google.generativeai as genai
-from PIL import Image
 import requests
+import base64
+from PIL import Image
 import io
 
 # ---- CONFIGURATION ----
-# Reads your API key from Streamlit secrets (safe, never in code)
-try:
-    genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-2.0-flash")
-except Exception as e:
-    st.error(f"API Configuration Error: {e}")
-    st.stop()
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
+
+def call_gemini(prompt_text, image=None):
+    parts = []
+    
+    if image:
+        # Convert image to base64
+        buffered = io.BytesIO()
+        image.save(buffered, format="JPEG")
+        img_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+        parts.append({
+            "inline_data": {
+                "mime_type": "image/jpeg",
+                "data": img_base64
+            }
+        })
+    
+    parts.append({"text": prompt_text})
+    
+    payload = {
+        "contents": [{"parts": parts}]
+    }
+    
+    response = requests.post(GEMINI_URL, json=payload)
+    
+    if response.status_code == 200:
+        return response.json()["candidates"][0]["content"]["parts"][0]["text"]
+    else:
+        st.error(f"API Error {response.status_code}: {response.json()}")
+        st.stop()
 
 # ---- PAGE SETUP ----
 st.set_page_config(page_title="Artisan Nexus", page_icon="🧵")
@@ -79,8 +103,7 @@ if generate:
             Only describe what you can literally see.
             """
             
-            vision_response = model.generate_content([vision_prompt, image])
-            visual_description = vision_response.text
+            visual_description = call_gemini(vision_prompt, image)
 
             # -- CALL 2: GENERATION --
             # All facts come from seller
@@ -141,9 +164,7 @@ RULES:
 - Keep tone professional, trustworthy, and customer-friendly
 """
 
-            listing_response = model.generate_content(generation_prompt)
-            full_output = listing_response.text
-
+            full_output = call_gemini(generation_prompt)
             # -- PARSE OUTPUT INTO SECTIONS --
             def extract_section(text, section_name, next_section=None):
                 try:

@@ -8,7 +8,7 @@ import io
 # Reads your API key from Streamlit secrets (safe, never in code)
 try:
     genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    model = genai.GenerativeModel("gemini-2.0-flash")
 except Exception as e:
     st.error(f"API Configuration Error: {e}")
     st.stop()

@@ -339,8 +339,9 @@ additional_notes = st.text_area(
     placeholder=L["notes_placeholder"]
 )
 seller_email = st.text_input(
-    "📧 Your Email (we'll send your listing here)",
-    placeholder="yourname@gmail.com"
+    "📧 Your Email (optional — we'll send your listing here)",
+    placeholder="yourname@gmail.com",
+    help="Leave blank if you prefer to just download your listing manually"
 )
 uploaded_image = st.file_uploader(
     L["upload_label"],
@@ -745,19 +746,25 @@ MARKETPLACE LISTING:
             use_container_width=True
         )
 # ---- SEND TO N8N ----
-        n8n_webhook = "https://muhammad963.app.n8n.cloud/webhook/7c195f67-3083-4bd2-ae84-b726ce4431c3"
-        payload = {
-            "email": seller_email,
-            "product_name": product_name,
-            "marketplace": marketplace,
-            "title": title,
-            "description": description,
-            "seo": seo,
-            "hashtags": hashtags,
-            "price_suggestion": price_suggestion,
-            "caption": caption,
-            "marketplace_listing": marketplace_listing
-        }
-        n8n_response = requests.post(n8n_webhook, json=payload, timeout=10)
-        st.write(f"n8n status: {n8n_response.status_code}")
-        st.write(f"n8n response: {n8n_response.text}")
+        if seller_email and "@" in seller_email and "." in seller_email:
+            n8n_webhook = "https://muhammad963.app.n8n.cloud/webhook/7c195f67-3083-4bd2-ae84-b726ce4431c3"
+            payload = {
+                "email": seller_email,
+                "product_name": product_name,
+                "marketplace": marketplace,
+                "title": title,
+                "description": description,
+                "seo": seo,
+                "hashtags": hashtags,
+                "price_suggestion": price_suggestion,
+                "caption": caption,
+                "marketplace_listing": marketplace_listing
+            }
+            try:
+                n8n_response = requests.post(n8n_webhook, json=payload, timeout=10)
+                if n8n_response.status_code == 200:
+                    st.success("📧 Listing sent to your email!")
+                else:
+                    st.warning("Email delivery unavailable. Use the download button instead.")
+            except:
+                st.warning("Email delivery unavailable. Use the download button instead.")

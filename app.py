@@ -700,7 +700,7 @@ RULES:
 
         guide = SELLING_GUIDES.get(marketplace, SELLING_GUIDES["None / Not decided yet"])
         
-        with st.expander("📖 Click to view your complete selling guide", expanded=True):
+        with st.expander("📖 Click to view your complete selling guide", expanded=False):
             st.markdown(f"### About {marketplace}")
             st.info(guide["intro"])
 

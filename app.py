@@ -573,11 +573,6 @@ MARKETPLACE LISTING:
             "caption": caption,
             "marketplace_listing": marketplace_listing
         }
-        try:
-            n8n_response = requests.post(n8n_webhook, json=payload, timeout=10)
-            if n8n_response.status_code == 200:
-                st.success("📧 Listing also sent to your email!")
-            else:
-                st.warning("Email delivery unavailable right now. Use the download button instead.")
-        except:
-            st.warning("Email delivery unavailable right now. Use the download button instead.")
+        n8n_response = requests.post(n8n_webhook, json=payload, timeout=10)
+        st.write(f"n8n status: {n8n_response.status_code}")
+        st.write(f"n8n response: {n8n_response.text}")

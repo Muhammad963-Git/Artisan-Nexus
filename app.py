@@ -679,6 +679,35 @@ RULES:
 
         guide = SELLING_GUIDES.get(marketplace, SELLING_GUIDES["None / Not decided yet"])
 
+        # Translate guide if output language is not English
+        if selected_output_lang != "English":
+            with st.spinner("Translating guide..."):
+                time.sleep(3)
+                
+                guide_text = f"""
+Platform: {marketplace}
+Intro: {guide['intro']}
+Steps: {' | '.join([f"{t}: {d}" for t, d in guide['steps']])}
+Tips: {' | '.join(guide['tips'])}
+Fees: {guide['fees']}
+"""
+                translate_prompt = f"""
+Translate the following marketplace selling guide into {selected_output_lang}.
+Keep all platform names, website URLs, and numbers exactly as they are.
+Only translate the descriptive text.
+Do not use asterisks or markdown.
+
+{guide_text}
+
+Return in this exact format:
+[INTRO] translated intro
+[STEPS] Step 1 title: description | Step 2 title: description
+[TIPS] tip1 | tip2 | tip3
+[FEES] translated fees
+"""
+                translated = call_gemini(translate_prompt)
+                st.info("🌐 Guide translated to " + selected_output_lang)
+
         with st.expander("📖 Click to view your complete selling guide", expanded=True):
             st.markdown(f"### About {marketplace}")
             st.info(guide["intro"])

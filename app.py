@@ -338,7 +338,10 @@ additional_notes = st.text_area(
     L["notes_label"],
     placeholder=L["notes_placeholder"]
 )
-
+seller_email = st.text_input(
+    "📧 Your Email (we'll send your listing here)",
+    placeholder="yourname@gmail.com"
+)
 uploaded_image = st.file_uploader(
     L["upload_label"],
     type=["jpg", "jpeg", "png", "webp"]

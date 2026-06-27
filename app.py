@@ -519,6 +519,191 @@ RULES:
         with tab4:
             st.subheader(L["caption_header"])
             st.write(caption)
+        # ---- HOW TO SELL GUIDE ----
+        st.markdown("---")
+        st.subheader("📖 How To List & Sell Your Product")
+        st.caption("A step-by-step guide for first-time sellers")
+
+        SELLING_GUIDES = {
+            "Daraz": {
+                "intro": "Daraz is Pakistan's largest online marketplace with over 20 million active users. Registration is free and there are no monthly fees — Daraz only charges a small commission when you make a sale.",
+                "requirements": [
+                    "Valid CNIC (front and back photo)",
+                    "Active Pakistani mobile number",
+                    "Valid email address",
+                    "Bank account with IBAN number",
+                    "At least 3 high-quality product photos (white background preferred)",
+                ],
+                "steps": [
+                    ("Create Your Account", "Go to sellercenter.daraz.pk and click 'Create New Account'. You can also SMS 'Daraz [Your Name]' to 7575 to get started via mobile."),
+                    ("Choose Account Type", "Select 'Local Seller' if you are an individual. Select 'Corporate Seller' if you have a registered business with NTN. Most artisans and small sellers choose Local Seller."),
+                    ("Verify Your Identity", "Upload a clear photo of the front and back of your CNIC. Fill in your full name, mobile number, email, and shop name. Set a password and accept the terms."),
+                    ("Complete Your Profile", "Inside Seller Center, find the to-do list and complete it. Add your warehouse address — this is where Daraz riders will come to pick up your orders. Be as specific as possible with house number, street, and nearest landmark."),
+                    ("Add Your Bank Details", "Enter your IBAN number carefully. Double-check every digit — a single wrong number means your payment goes to the wrong account."),
+                    ("Wait For Verification", "Daraz typically verifies accounts within 24 to 48 hours. You will receive a confirmation email."),
+                    ("List Your Product", "In Seller Center, go to Products and click Add Products. Enter your product name, select the correct category, add your description, set your price, and upload at least 3 photos. Click Publish."),
+                    ("Receive & Ship Orders", "When a customer orders, pack it well and wait for the Daraz Express rider to pick it up. You can also drop it off at a Daraz hub near you."),
+                    ("Get Paid", "Daraz pays sellers every 14 days. Orders delivered between the 1st and 15th are paid by the 25th. Payments go directly to your linked bank account."),
+                ],
+                "tips": [
+                    "Use a white background for product photos — listings with clean photos rank higher in search",
+                    "Include the brand, material, and key feature in your product title for better SEO",
+                    "Select the most accurate category — wrong categories mean your product never appears in search filters",
+                    "Daraz commission varies by category — check the Commission Structure in Daraz University inside your Seller Center",
+                    "Join Daraz campaigns like 11.11 or 12.12 for massive traffic boosts",
+                    "Aim for at least a 30-40% profit margin to stay profitable after commission and packaging costs",
+                ],
+                "fees": "Registration: Free. Monthly fee: None. Commission: 5-20% per sale depending on category. Payment cycle: Every 14 days.",
+                "link": "https://sellercenter.daraz.pk",
+            },
+            "Etsy": {
+                "intro": "Etsy is a global marketplace with over 96 million buyers specifically looking for handmade, vintage, and unique items. It is ideal for artisan products, crafts, and culturally unique goods. Etsy connects Pakistani sellers directly with international buyers.",
+                "requirements": [
+                    "Valid email address",
+                    "Payoneer account (for Pakistani sellers to receive payments)",
+                    "At least one product photo to complete shop setup",
+                    "A unique shop name (under 20 characters, no spaces)",
+                    "Bank account linked to Payoneer",
+                ],
+                "steps": [
+                    ("Create An Etsy Account", "Go to etsy.com and click 'Sign in' then 'Register'. Enter your name and email address and create a password. You can also sign up with Google."),
+                    ("Open Your Shop", "Click your account icon and select 'Sell on Etsy' or go directly to etsy.com/sell. Click 'Open your Etsy shop'. This starts the guided setup wizard."),
+                    ("Set Shop Preferences", "Choose your language, country (Pakistan), and currency. Click Save and Continue."),
+                    ("Choose Your Shop Name", "Pick a unique name under 20 characters with no spaces or special characters. You can change it once later if needed. Include relevant keywords if possible."),
+                    ("Create Your First Listing", "Etsy requires at least one listing to complete setup. Upload your product photos, write a title using keywords, add a description, set your price, and choose a category. Use all 13 tags Etsy allows — these are critical for search visibility."),
+                    ("Set Up Payments", "Pakistani sellers use Etsy Payments via Payoneer. Create a free Payoneer account at payoneer.com if you don't have one. Link it to your Etsy shop. Funds from sales are deposited into your Payoneer account and can be transferred to your Pakistani bank."),
+                    ("Set Up Billing", "Add a credit or debit card to pay for Etsy fees. Each listing costs $0.20 and is active for 4 months."),
+                    ("Publish Your Shop", "Once billing is set up your shop goes live immediately. Your first listing is now visible to buyers worldwide."),
+                    ("Customize Your Shop", "Add a shop logo, banner, and About section. Tell your story — where you are from, how you make your products. Buyers on Etsy love authentic stories and are more likely to buy from sellers with complete profiles."),
+                    ("Ship Your Orders", "When an order arrives, pack it carefully and ship via Pakistan Post or a courier like TCS or Leopards for international orders. Update the tracking number in your Etsy orders dashboard."),
+                ],
+                "tips": [
+                    "Etsy buyers love cultural stories — mention Swat, Multan, KPK or your region in your shop description",
+                    "Use all 13 tags per listing — Etsy's search algorithm relies heavily on tags",
+                    "Launch with at least 10-20 listings — more listings means more chances to be found",
+                    "High quality photos are everything on Etsy — invest in good lighting before anything else",
+                    "Complete your About Me page fully — buyers trust sellers who share their story",
+                    "Reply to messages within 24 hours — fast replies improve your search ranking",
+                    "Etsy automatically runs Offsite Ads for your products — you only pay a 15% fee if a sale comes from those ads",
+                ],
+                "fees": "Listing fee: $0.20 per item (active for 4 months). Transaction fee: 6.5% per sale. Payment processing: ~3% + $0.25 per transaction. Offsite Ads: 15% only if sale comes from an ad.",
+                "link": "https://www.etsy.com/sell",
+            },
+            "Amazon": {
+                "intro": "Amazon is the world's largest online marketplace with over 300 million active customers. It gives your product access to a global audience. Amazon is best suited for sellers who can produce consistent stock and want to scale internationally.",
+                "requirements": [
+                    "Valid email address",
+                    "Government-issued ID (passport or national ID)",
+                    "Credit or debit card",
+                    "Bank account that can receive international transfers",
+                    "Phone number for verification",
+                    "Tax information (varies by country)",
+                ],
+                "steps": [
+                    ("Choose A Selling Plan", "Go to sell.amazon.com. Individual Plan: No monthly fee, pay $0.99 per item sold. Best if you sell fewer than 40 items per month. Professional Plan: $39.99 per month, unlimited sales. Best for serious sellers who want advertising tools and bulk listing."),
+                    ("Create Your Seller Account", "Go to sellercentral.amazon.com and click 'Sign up'. Enter your email and create a password. Provide your legal name, address, and contact details."),
+                    ("Verify Your Identity", "Upload a government-issued photo ID and a recent bank statement or credit card statement. Amazon may schedule a short video verification call. Account approval typically takes 1 to 3 business days."),
+                    ("Set Up Your Account", "Add your bank account details for receiving payments. Add a credit card for paying Amazon fees. Configure your display name and seller profile."),
+                    ("List Your Product", "In Seller Central go to Inventory and click Add a Product. If your product already exists on Amazon search for it and add your offer. If it is brand new click Create a new product listing. Fill in the product title, category, description, bullet points, photos, price, and quantity."),
+                    ("Choose Your Fulfillment Method", "FBM (Fulfilled by Merchant): You store, pack, and ship orders yourself. More control, lower fees. FBA (Fulfilled by Amazon): You ship your stock to Amazon's warehouse and they handle everything including returns. More expensive but products get the Prime badge which increases sales by 20-30%."),
+                    ("Set Your Price", "Research similar products and price competitively. Account for Amazon's referral fee (8-20% depending on category) plus any FBA fees if applicable."),
+                    ("Launch & Promote", "Once live, consider running Sponsored Products ads (pay per click) to get initial visibility. Ask satisfied customers to leave honest reviews — reviews are critical for Amazon ranking."),
+                    ("Get Paid", "Amazon pays every 14 days directly to your bank account after deducting fees."),
+                ],
+                "tips": [
+                    "Your product title should include brand, material, key feature, size or quantity, and main keyword — keep it under 200 characters",
+                    "Use all 5 bullet points to highlight benefits not just features — lead with the benefit",
+                    "Professional photography significantly increases conversion — cell phone photos on a white background is the minimum",
+                    "FBA gives your product the Prime badge which dramatically increases sales for most categories",
+                    "Never pay for reviews — it violates Amazon's terms and can result in account suspension",
+                    "Factor all fees into your price: referral fee (8-20%) + FBA fees + packaging + shipping",
+                    "Amazon's Individual plan becomes more expensive than Professional once you sell more than 40 items per month",
+                ],
+                "fees": "Individual plan: $0.99 per item sold. Professional plan: $39.99 per month. Referral fee: 8-20% per sale depending on category. FBA fees: vary by product size and weight.",
+                "link": "https://sellercentral.amazon.com",
+            },
+            "Instagram": {
+                "intro": "Instagram has over 2 billion monthly active users and 130 million users tap on shopping posts every single month. It is ideal for visually appealing products like crafts, clothing, beauty, and home goods. Setting up Instagram Shopping is free.",
+                "requirements": [
+                    "Instagram Business or Creator account (not a personal account)",
+                    "Facebook Business Page linked to your Instagram",
+                    "Physical products only (services and digital products are not eligible)",
+                    "A website you own (for catalog verification in most regions)",
+                    "Products must comply with Instagram Commerce Policies",
+                ],
+                "steps": [
+                    ("Switch To A Business Account", "Open Instagram, go to Settings, tap Account, then tap Switch to Professional Account. Choose Business. This is required before you can access shopping features."),
+                    ("Create A Facebook Business Page", "Go to facebook.com and create a Business Page for your shop. Link it to your Instagram in Settings under Linked Accounts. This is required even if you do not plan to sell on Facebook."),
+                    ("Open Commerce Manager", "Go to facebook.com/commerce_manager on a computer. Click Get Started then Create a Shop. This is the control center for your Instagram shop."),
+                    ("Choose Your Selling Platform", "If you use Shopify, select it for automatic sync. If not, choose I don't use these platforms and Instagram will create a product catalog for you manually."),
+                    ("Add Your Products", "In Commerce Manager click Add Products. For each product add a name, description, price, and at least one photo. This becomes your product catalog."),
+                    ("Link Your Instagram Account", "In Commerce Manager select your Instagram Business account. Choose your Facebook Page. Select or confirm your product catalog."),
+                    ("Submit For Review", "Add your business details including customer support email, shipping information, and return policy. Agree to Meta's seller terms. Click Finish Setup and submit for review. Review typically takes a few days."),
+                    ("Start Tagging Products", "Once approved go to your Instagram profile and tap the shopping bag icon. Now when you create a post, Reel, or Story you can tag your products directly. Viewers tap the tag to see the product and price."),
+                    ("Receive Payments", "Outside the US customers are redirected to your website to complete purchase. Inside the US Instagram Checkout is available and handles payment within the app."),
+                ],
+                "tips": [
+                    "Reels get the most organic reach on Instagram in 2026 — show your product being made or used in short videos",
+                    "Tag products in every relevant post, Reel, and Story — each tag is a direct path to purchase",
+                    "Post consistently — 3 to 5 times per week minimum to stay visible in the algorithm",
+                    "Use your generated hashtags in every post — they dramatically increase discoverability",
+                    "Respond to every comment and DM quickly — fast responses build trust and lead to sales",
+                    "Add your WhatsApp number to your bio so local customers can contact you directly",
+                    "Collaborate with micro-influencers in your niche — even 1000 follower accounts can drive real sales",
+                    "Instagram Shopping may not be available in all regions of Pakistan — if unavailable use the link in bio strategy instead",
+                ],
+                "fees": "Setting up Instagram Shop: Free. No listing fees. No monthly fees. Instagram takes a selling fee only for US-based Instagram Checkout. For most sellers outside the US it is completely free.",
+                "link": "https://facebook.com/commerce_manager",
+            },
+            "None / Not decided yet": {
+                "intro": "Not sure which platform to sell on yet? Here is a quick comparison to help you decide based on your product type and goals.",
+                "requirements": [],
+                "steps": [
+                    ("Daraz", "Best for: Pakistani market. Reaches millions of local buyers. Free to register. Requires CNIC. Commission 5-20% per sale. Visit: sellercenter.daraz.pk"),
+                    ("Etsy", "Best for: Handmade, artisan, culturally unique products. International buyers. $0.20 per listing + 6.5% commission. Pakistani sellers use Payoneer. Visit: etsy.com/sell"),
+                    ("Amazon", "Best for: Scaling internationally with consistent stock. Massive global reach. Individual plan $0.99/item or Professional $39.99/month. Visit: sellercentral.amazon.com"),
+                    ("Instagram", "Best for: Visual products with a strong story. Building a brand and loyal following. Free to set up. Best combined with Daraz or Etsy for actual checkout. Visit: instagram.com"),
+                    ("WhatsApp Business", "Best for: Direct local sales with zero fees. Create a catalog in WhatsApp Business app, share your product photos and price, and receive orders directly. Completely free and requires no technical setup."),
+                ],
+                "tips": [
+                    "Start with Daraz if your primary market is Pakistan — lowest barrier to entry",
+                    "Start with Etsy if your product is handmade and has cultural uniqueness — international buyers pay premium prices for authentic crafts",
+                    "Use Instagram alongside any platform — it drives awareness and sends buyers to your actual shop",
+                    "WhatsApp Business is completely free and requires zero technical knowledge — ideal for absolute beginners",
+                    "You do not have to choose just one — many successful sellers use Daraz + Instagram + WhatsApp together",
+                ],
+                "fees": "Varies by platform. Daraz and Instagram are free to start. Etsy charges $0.20 per listing. Amazon charges $0.99 per item or $39.99/month.",
+                "link": "",
+            },
+        }
+
+        guide = SELLING_GUIDES.get(marketplace, SELLING_GUIDES["None / Not decided yet"])
+
+        with st.expander("📖 Click to view your complete selling guide", expanded=True):
+            st.markdown(f"### About {marketplace}")
+            st.info(guide["intro"])
+
+            if guide["requirements"]:
+                st.markdown("#### ✅ What You Need Before You Start")
+                for req in guide["requirements"]:
+                    st.markdown(f"- {req}")
+
+            st.markdown("#### 🪜 Step-by-Step Guide")
+            for i, (step_title, step_desc) in enumerate(guide["steps"], 1):
+                st.markdown(f"**Step {i}: {step_title}**")
+                st.markdown(f"{step_desc}")
+                st.markdown("")
+
+            st.markdown("#### 💡 Tips For Success")
+            for tip in guide["tips"]:
+                st.markdown(f"- {tip}")
+
+            st.markdown(f"#### 💰 Fees Summary")
+            st.markdown(guide["fees"])
+
+            if guide["link"]:
+                st.markdown(f"#### 🔗 Get Started")
+                st.markdown(f"[Click here to go to {marketplace} →]({guide['link']})")
 
         # ================================================================
         # DOWNLOAD BUTTON

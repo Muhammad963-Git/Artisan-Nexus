@@ -556,3 +556,25 @@ MARKETPLACE LISTING:
             mime="text/plain",
             use_container_width=True
         )
+# ---- SEND TO N8N ----
+        n8n_webhook = "https://muhammad963.app.n8n.cloud/webhook/7c195f67-3083-4bd2-ae84-b726ce4431c3"
+        payload = {
+            "email": seller_email,
+            "product_name": product_name,
+            "marketplace": marketplace,
+            "title": title,
+            "description": description,
+            "seo": seo,
+            "hashtags": hashtags,
+            "price_suggestion": price_suggestion,
+            "caption": caption,
+            "marketplace_listing": marketplace_listing
+        }
+        try:
+            n8n_response = requests.post(n8n_webhook, json=payload, timeout=10)
+            if n8n_response.status_code == 200:
+                st.success("📧 Listing also sent to your email!")
+            else:
+                st.warning("Email delivery unavailable right now. Use the download button instead.")
+        except:
+            st.warning("Email delivery unavailable right now. Use the download button instead.")

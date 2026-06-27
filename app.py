@@ -48,6 +48,9 @@ UI_LANGUAGES = {
         "caption_header": "Marketing Caption",
         "download_btn": "📥 Download Full Package",
         "photo_caption": "Your product photo",
+        "email_label": "📧 Your Email (optional)",
+        "email_placeholder": "yourname@gmail.com",
+        "email_help": "Leave blank if you prefer to just download your listing manually",
     },
     "اردو": {
         "page_title": "آرٹیزن نیکسس",
@@ -88,6 +91,9 @@ UI_LANGUAGES = {
         "caption_header": "مارکیٹنگ کیپشن",
         "download_btn": "📥 مکمل پیکیج ڈاؤن لوڈ کریں",
         "photo_caption": "آپ کی مصنوع کی تصویر",
+        "email_label": "📧 آپ کی ای میل (اختیاری)",
+        "email_placeholder": "yourname@gmail.com",
+        "email_help": "اگر آپ صرف ڈاؤن لوڈ کرنا چاہتے ہیں تو خالی چھوڑ دیں",
     },
     "العربية": {
         "page_title": "آرتيزان نيكسس",
@@ -128,6 +134,9 @@ UI_LANGUAGES = {
         "caption_header": "تعليق تسويقي",
         "download_btn": "📥 تحميل الحزمة الكاملة",
         "photo_caption": "صورة منتجك",
+        "email_label": "📧 بريدك الإلكتروني (اختياري)",
+        "email_placeholder": "yourname@gmail.com",
+        "email_help": "اتركه فارغاً إذا كنت تفضل تنزيل القائمة يدوياً",
     },
     "中文": {
         "page_title": "工匠枢纽",
@@ -168,6 +177,9 @@ UI_LANGUAGES = {
         "caption_header": "营销文案",
         "download_btn": "📥 下载完整包",
         "photo_caption": "您的产品照片",
+        "email_label": "📧 您的邮箱（可选）",
+        "email_placeholder": "yourname@gmail.com",
+        "email_help": "如果您只想手动下载列表，请留空",
     },
 }
 
@@ -339,9 +351,9 @@ additional_notes = st.text_area(
     placeholder=L["notes_placeholder"]
 )
 seller_email = st.text_input(
-    "📧 Your Email (optional — we'll send your listing here)",
-    placeholder="yourname@gmail.com",
-    help="Leave blank if you prefer to just download your listing manually"
+    L["email_label"],
+    placeholder=L["email_placeholder"],
+    help=L["email_help"]
 )
 uploaded_image = st.file_uploader(
     L["upload_label"],

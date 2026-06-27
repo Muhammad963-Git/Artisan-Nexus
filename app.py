@@ -273,6 +273,10 @@ st.set_page_config(page_title="Artisan Nexus", page_icon="🧵", layout="centere
 # ================================================================
 # LANGUAGE SELECTORS — TOP OF PAGE
 # ================================================================
+# Initialize session state for language tracking
+if "prev_ui_lang" not in st.session_state:
+    st.session_state.prev_ui_lang = "English"
+
 col_lang1, col_lang2 = st.columns(2)
 with col_lang1:
     selected_ui_lang = st.selectbox(
@@ -287,9 +291,13 @@ with col_lang2:
         index=0
     )
 
+# Force rerun when UI language changes so placeholders update
+if selected_ui_lang != st.session_state.prev_ui_lang:
+    st.session_state.prev_ui_lang = selected_ui_lang
+    st.rerun()
+
 L = UI_LANGUAGES[selected_ui_lang]
 output_instruction = OUTPUT_LANGUAGES[selected_output_lang]
-
 # ================================================================
 # HERO SECTION — MORE NOTICEABLE TAGLINE
 # ================================================================

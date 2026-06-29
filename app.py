@@ -10,9 +10,9 @@ import time
 # ================================================================
 UI_LANGUAGES = {
     "English": {
-        "page_title": "Artisan Nexus",
+        "page_title": "CraftAI",
         "tagline_head": "Your product. Professional listings. In seconds.",
-        "tagline_body": "Upload a photo, fill in a few details, and Artisan Nexus instantly generates a complete marketplace listing — product title, description, SEO keywords, hashtags, pricing suggestion, and social media caption — ready for Daraz, Etsy, Amazon, Instagram and more. In any language. For free.",
+        "tagline_body": "Upload a photo, fill in a few details, and CraftAI instantly generates a complete marketplace listing — product title, description, SEO keywords, hashtags, pricing suggestion, and social media caption — ready for Daraz, Etsy, Amazon, Instagram and more. In any language. For free.",
         "ui_lang_label": "🌐 Interface Language",
         "output_lang_label": "📄 Output Language",
         "form_header": "Tell us about your product",
@@ -268,7 +268,7 @@ def call_gemini(prompt_text, image=None):
 # ================================================================
 # PAGE SETUP
 # ================================================================
-st.set_page_config(page_title="Artisan Nexus", page_icon="🧵", layout="centered")
+st.set_page_config(page_title="CraftAI", page_icon="🧵", layout="centered")
 
 # ================================================================
 # LANGUAGE SELECTORS — TOP OF PAGE
@@ -730,7 +730,7 @@ RULES:
         # DOWNLOAD BUTTON
         # ================================================================
         full_package = f"""
-ARTISAN NEXUS — COMPLETE LISTING PACKAGE
+CRAFTAI — COMPLETE LISTING PACKAGE
 Product: {product_name}
 Category: {product_type}
 Marketplace: {marketplace}
